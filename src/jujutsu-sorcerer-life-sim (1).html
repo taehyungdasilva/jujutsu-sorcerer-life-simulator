@@ -66,9 +66,30 @@
 </head>
 <body>
 <div id="app"></div>
+<script src="./core/saveManager.js"></script>
+<script src="./state/gameStore.js"></script>
 <script>
 const STORAGE_KEY_LEGACY = 'legacy-records';
 const STORAGE_KEY_RUN = 'current-run';
+
+const storageAdapter = (() => {
+  if (typeof window !== 'undefined' && window.localStorage) {
+    return {
+      getItem(key) { return window.localStorage.getItem(key); },
+      setItem(key, value) { window.localStorage.setItem(key, value); },
+      removeItem(key) { window.localStorage.removeItem(key); }
+    };
+  }
+
+  const data = new Map();
+  return {
+    getItem(key) { return data.has(key) ? data.get(key) : null; },
+    setItem(key, value) { data.set(key, String(value)); },
+    removeItem(key) { data.delete(key); }
+  };
+})();
+
+const saveManager = createGameSaveManager(storageAdapter, 'jujutsu-save');
 
 const ORIGINS = {
   restricao_celestial: {
@@ -178,11 +199,11 @@ function dayMark(){
   const slotNames=['Manhã','Tarde','Noite'];
   addLog(`<div class="day-mark">Dia ${state.day} — ${slotNames[state.slot]}</div>`);
 }
-async function saveRun(){ try{ await window.storage.set(STORAGE_KEY_RUN, JSON.stringify(state)); }catch(e){} }
-async function clearRun(){ try{ await window.storage.delete(STORAGE_KEY_RUN); }catch(e){} }
-async function loadRun(){ try{ const r=await window.storage.get(STORAGE_KEY_RUN); return r?JSON.parse(r.value):null; }catch(e){ return null; } }
-async function loadLegacy(){ try{ const r=await window.storage.get(STORAGE_KEY_LEGACY); return r?JSON.parse(r.value):[]; }catch(e){ return []; } }
-async function addLegacy(entry){ const list=await loadLegacy(); list.unshift(entry); try{ await window.storage.set(STORAGE_KEY_LEGACY, JSON.stringify(list.slice(0,25))); }catch(e){} }
+async function saveRun(){ try{ saveManager.saveState('run', state); }catch(e){} }
+async function clearRun(){ try{ saveManager.clearState('run'); }catch(e){} }
+async function loadRun(){ try{ return saveManager.loadState('run'); }catch(e){ return null; } }
+async function loadLegacy(){ try{ return saveManager.loadState('legacy') || []; }catch(e){ return []; } }
+async function addLegacy(entry){ const list=await loadLegacy(); list.unshift(entry); try{ saveManager.saveState('legacy', list.slice(0,25)); }catch(e){} }
 
 function advanceSlot(){
   state.slot++;
