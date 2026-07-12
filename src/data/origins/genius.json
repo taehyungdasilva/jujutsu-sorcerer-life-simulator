@@ -1,0 +1,21 @@
+{
+  "id": "genius",
+  "name": "Gênio",
+  "description": "Aprende mais rápido que qualquer colega. Entende teoria antes de ser ensinado.",
+  "stats": {
+    "forca": 35,
+    "velocidade": 35,
+    "reservas": 35,
+    "controle": 45,
+    "intelecto": 55,
+    "resolucao": 40
+  },
+  "growth": {
+    "forca": 1.05,
+    "velocidade": 1.05,
+    "reservas": 1.1,
+    "controle": 1.25,
+    "intelecto": 1.3,
+    "resolucao": 1.1
+  }
+}

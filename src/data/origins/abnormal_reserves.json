@@ -1,0 +1,21 @@
+{
+  "id": "abnormal_reserves",
+  "name": "Reservas Anormais",
+  "description": "Energia amaldiçoada em uma escala absurda. Controlá-la é outra história.",
+  "stats": {
+    "forca": 35,
+    "velocidade": 30,
+    "reservas": 70,
+    "controle": 12,
+    "intelecto": 30,
+    "resolucao": 30
+  },
+  "growth": {
+    "forca": 1.0,
+    "velocidade": 1.0,
+    "reservas": 1.15,
+    "controle": 0.6,
+    "intelecto": 1.0,
+    "resolucao": 0.95
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "sukuna_vessel",
+  "name": "Vaso do Sukuna",
+  "description": "Reservas fora do normal, potencial aterrorizante — e um risco constante de perder o controle.",
+  "stats": {
+    "forca": 40,
+    "velocidade": 35,
+    "reservas": 60,
+    "controle": 25,
+    "intelecto": 30,
+    "resolucao": 20
+  },
+  "growth": {
+    "forca": 1.0,
+    "velocidade": 1.0,
+    "reservas": 1.4,
+    "controle": 0.9,
+    "intelecto": 1.0,
+    "resolucao": 0.75
+  }
+}

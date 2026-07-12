@@ -1,0 +1,21 @@
+{
+  "id": "restricao_celestial",
+  "name": "Restrição Celestial",
+  "description": "Corpo perfeito, quase nenhuma energia amaldiçoada. Você vive de reflexo e instinto, não de técnica.",
+  "stats": {
+    "forca": 70,
+    "velocidade": 65,
+    "reservas": 8,
+    "controle": 15,
+    "intelecto": 35,
+    "resolucao": 45
+  },
+  "growth": {
+    "forca": 1.3,
+    "velocidade": 1.3,
+    "reservas": 0.25,
+    "controle": 0.5,
+    "intelecto": 1.0,
+    "resolucao": 1.1
+  }
+}

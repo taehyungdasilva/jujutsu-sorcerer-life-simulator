@@ -1,5 +1,11 @@
 export const FEATURES = {
-  newArchitecture: true,
-  eventSystem: false,
-  historySystem: false
+  ENABLE_DEBUG: false,
+  ENABLE_CHEATS: false,
+ 
+  ENABLE_SOCIAL_LINKS: false,
+  ENABLE_BINDING_VOWS: false,
+  ENABLE_DOMAINS: false,
+ 
+  ENABLE_CANON_EVENTS: false,
+  ENABLE_LEGACY_SYSTEM: false
 };

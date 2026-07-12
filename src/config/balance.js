@@ -1,4 +1,11 @@
 export const BALANCE = {
-  trainingGain: 2,
-  restGain: 20
+  XP_BASE: 100,
+  XP_MULTIPLIER: 1.5,
+ 
+  STAT_GROWTH_BASE: 1,
+  STAT_GROWTH_MULTIPLIER: 0.1,
+ 
+  MISSION_REWARD_MULTIPLIER: 1.2,
+ 
+  ENEMY_SCALING: 1.1
 };
